@@ -43,7 +43,7 @@ client.on('message', (message) => {
         .addFields(
             { name: 'Guild Master', value: `<@180474446685929474>`},
             { name: 'Guild Officers', value: '<@107714153698852864>\n<@473247777531494400>\n<@56575160035049472>\n'},
-            { name: 'Rules', value: `Please set your Discord Nickname to include your family name in Black Desert so we know you are from in-game!`},
+            { name: 'Rules', value: `Please set your Discord nickname to include your family name in Black Desert so we know you are from in-game!`},
             { name: 'Introduction', value: `Feel free to introduce yourself in the <#${VISITOR_CENTER_CHANNEL}>!`},
         );
         message.channel.send(embed);
@@ -125,7 +125,7 @@ client.on('messageReactionRemove', async(reaction, user) => {
 });
 */
 
-
+/*
 // Add listner for new members added to the server
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.cache.find(ch => ch.name === 'visitor-center');
@@ -133,6 +133,7 @@ client.on('guildMemberAdd', member => {
     channel.send(`Welcome to the server ${member}! Please read over the guild info in the <#${GUILD_INFO_CHANNEL}> and introduce yourself here!`);
     member.roles.add(VISITOR_ROLE);
 });
+*/
 
 
 // Initialize bot and connect to server
