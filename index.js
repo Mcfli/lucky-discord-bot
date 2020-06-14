@@ -129,7 +129,7 @@ client.on('messageReactionRemove', async(reaction, user) => {
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.cache.find(ch => ch.name === 'visitor-center');
     if (!channel) return
-    channel.send(`Welcome to the server ${member}! Please read over the guild info in the <#${GUILD_INFO_CHANNEL}> and introduce yourself here!`);
+    channel.send(`Welcome to the server ${member}! Please read over the guild info in the <#${GUILD_INFO_CHANNEL}> channel and introduce yourself here!`);
     member.roles.add(VISITOR_ROLE);
 });
 
