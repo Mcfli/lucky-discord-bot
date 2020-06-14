@@ -13,7 +13,7 @@ const BOT_USER = '719769443324133406';
 const ECLIPSE_USER = '107714153698852864';
 
 // Emojis
-const JIU_EMOJI = '718972573492314203';
+const BDO_EMOJI = '721575302014173274';
 const YOOHYEON_EMOJI = '718973017564119080';
 const DAMI_EMOJI = '718972969203794000';
 
@@ -53,7 +53,7 @@ client.on('message', (message) => {
         .setColor('0xa100ff')
         .setDescription('React below with the emojis to gain access to the corresponding channels')
         .addFields(
-            {},
+            { name: 'Black Desert Online', value: `<:black_spirit:${BDO_EMOJI}>`},
         );
     }
 
@@ -125,7 +125,6 @@ client.on('messageReactionRemove', async(reaction, user) => {
 });
 */
 
-/*
 // Add listner for new members added to the server
 client.on('guildMemberAdd', member => {
     const channel = member.guild.channels.cache.find(ch => ch.name === 'visitor-center');
@@ -133,7 +132,6 @@ client.on('guildMemberAdd', member => {
     channel.send(`Welcome to the server ${member}! Please read over the guild info in the <#${GUILD_INFO_CHANNEL}> and introduce yourself here!`);
     member.roles.add(VISITOR_ROLE);
 });
-*/
 
 
 // Initialize bot and connect to server
