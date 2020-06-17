@@ -7,6 +7,9 @@ const client = new Discord.Client({partials: ['MESSAGE', 'CHANNEL', 'REACTION']}
 const BOT_ROLE = '720511554436464670';
 const VISITOR_ROLE = '720514641020583946';
 const OFFICER_ROLE = '711454031007973438';
+const BDO_ROLE = '718712020610056305';
+const SMASH_ROLE = '721603511833591838';
+const WOW_ROLE = '718930981880594452';
 
 // Users
 const BOT_USER = '719769443324133406';
@@ -14,8 +17,8 @@ const ECLIPSE_USER = '107714153698852864';
 
 // Emojis
 const BDO_EMOJI = '721575302014173274';
-const YOOHYEON_EMOJI = '718973017564119080';
-const DAMI_EMOJI = '718972969203794000';
+const WOW_EMOJI = '722338692425056287';
+const SMASH_EMOJI = '722338767289057293';
 
 // Channels
 const GUILD_INFO_CHANNEL = '721263231791923212';
@@ -51,15 +54,22 @@ client.on('message', (message) => {
         const embed = new Discord.MessageEmbed()
         .setTitle('Lucky Cat Role Assignment')
         .setColor('0xa100ff')
-        .setDescription('React below with the emojis to gain access to the corresponding channels')
+        .setDescription('React below with the emojis to gain access to the corresponding channels. More roles coming soon!')
         .addFields(
             { name: 'Black Desert Online', value: `<:black_spirit:${BDO_EMOJI}>`},
+            { name: 'Super Smash Bros', value: `<:smash:${SMASH_EMOJI}>`},
+            { name: 'World of Warcraft', value: `<:world_of_warcraft:${WOW_EMOJI}`},
         );
+        message.channel.send(embed).then(sentMessage => {
+            sentMessage.react(`${BDO_EMOJI}`);
+            sentMessage.react(`${SMASH_EMOJI}`);
+            sentMessage.react(`${WOW_EMOJI}`);
+        });
     }
 
 });
 
-/*
+
 // Add listener for reactions
 client.on('messageReactionAdd', async (reaction, user) => {
     // Don't do anything if the bot was reacting
@@ -76,23 +86,22 @@ client.on('messageReactionAdd', async (reaction, user) => {
     }
     // Check if the message was the welcome message
     const rmsg = reaction.message;
-    if (rmsg.channel.name === 'welcome' && rmsg.id === '719016213535260694') {
+    if (rmsg.channel.id === ROLE_ASSIGN_CHANNEL) {
         // Match user id to member of server
         rmsg.guild.members.fetch(user.id).then(member => {
             // Check emoji and assign correct role
-            if(reaction.emoji.name === 'yoohyeon') {
-                member.roles.add(YOOHYEON_ROLE);
-            } else if (reaction.emoji.name === 'jiu') {
-                member.roles.add(JIU_ROLE);
-            } else if (reaction.emoji.name === 'dami') {
-                member.roles.add(DAMI_ROLE);
+            if(reaction.emoji.id === BDO_EMOJI) {
+                member.roles.add(BDO_ROLE);
+            } else if (reaction.emoji.id === SMASH_EMOJI) {
+                member.roles.add(SMASH_ROLE);
+            } else if (reaction.emoji.id === WOW_EMOJI) {
+                member.roles.add(WOW_ROLE);
             }
         });
     };
 });
-*/
 
-/*
+
 // Add listener for removing reactions
 client.on('messageReactionRemove', async(reaction, user) => {
     // Don't do anything if the bot was removing the reaction
@@ -109,21 +118,20 @@ client.on('messageReactionRemove', async(reaction, user) => {
     }
     // Check if the message was the welcome message
     const rmsg = reaction.message;
-    if (rmsg.channel.name === 'welcome' && rmsg.id === '719016213535260694') {
+    if (rmsg.channel.id === ROLE_ASSIGN_CHANNEL) {
         // Match user id to member of server
         rmsg.guild.members.fetch(user.id).then(member => {
-            // Check emoji and assign correct role
-            if(reaction.emoji.name === 'yoohyeon') {
-                member.roles.remove(YOOHYEON_ROLE);
-            } else if (reaction.emoji.name === 'jiu') {
-                member.roles.remove(JIU_ROLE);
-            } else if (reaction.emoji.name === 'dami') {
-                member.roles.remove(DAMI_ROLE);
+            // Check emoji and remove correct role
+            if(reaction.emoji.id === BDO_EMOJI) {
+                member.roles.remove(BDO_ROLE);
+            } else if (reaction.emoji.id === SMASH_EMOJI) {
+                member.roles.remove(SMASH_ROLE);
+            } else if (reaction.emoji.id === WOW_EMOJI) {
+                member.roles.remove(WOW_ROLE);
             }
         });
     };
 });
-*/
 
 // Add listner for new members added to the server
 client.on('guildMemberAdd', member => {
