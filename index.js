@@ -16,9 +16,9 @@ const BOT_USER = '719769443324133406';
 const ECLIPSE_USER = '107714153698852864';
 
 // Emojis
-const BDO_EMOJI = '721575302014173274';
-const WOW_EMOJI = '722338692425056287';
-const SMASH_EMOJI = '722338767289057293';
+const BDO_EMOJI = '721575227821391895';
+const WOW_EMOJI = '722338448572284978';
+const SMASH_EMOJI = '721590704966467624';
 
 // Channels
 const GUILD_INFO_CHANNEL = '721263231791923212';
@@ -58,7 +58,7 @@ client.on('message', (message) => {
         .addFields(
             { name: 'Black Desert Online', value: `<:black_spirit:${BDO_EMOJI}>`},
             { name: 'Super Smash Bros', value: `<:smash:${SMASH_EMOJI}>`},
-            { name: 'World of Warcraft', value: `<:world_of_warcraft:${WOW_EMOJI}`},
+            { name: 'World of Warcraft', value: `<:world_of_warcraft:${WOW_EMOJI}>`},
         );
         message.channel.send(embed).then(sentMessage => {
             sentMessage.react(`${BDO_EMOJI}`);
