@@ -37,7 +37,9 @@ client.on('message', (message) => {
         message.reply('https://www.youtube.com/watch?v=I5_BQAtwHws');
     // Restrict welcome message generating to only Eclipse
     } else if (message.content == '!sleepwalking' && message.author.id === ECLIPSE_USER) {
-        message.replay('https://www.youtube.com/watch?v=2_GcbZlDnns')
+        message.reply('https://www.youtube.com/watch?v=2_GcbZlDnns');
+    } else if (message.content === '!silentnight' && message.author.id === ECLIPSE_USER) {
+        message.reply('https://www.youtube.com/watch?v=7NO0YX341XU');
     } else if (message.content === '!info' && message.author.id === ECLIPSE_USER) {
         const embed = new Discord.MessageEmbed()
         .setTitle('Lucky Cat')
